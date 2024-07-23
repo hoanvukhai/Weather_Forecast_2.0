@@ -16,6 +16,7 @@ function Search({ onCitySelect, isDarkMode}: SearchProps) {
     const [highlightedIndex, setHighlightedIndex] = useState(-1);
     const dropdownRef = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLInputElement>(null);
+    const [isLoading, setIsLoading] = useState(false);
 
     const debounce = (func: Function, delay: number) => {
         let timer: NodeJS.Timeout;
@@ -27,8 +28,14 @@ function Search({ onCitySelect, isDarkMode}: SearchProps) {
 
     const fetchCitiesDebounced = useCallback(
         debounce(async (input: string) => {
-            const citiesData = await fetchCities(input);
-            setCities(citiesData);
+            if(input){
+                const citiesData = await fetchCities(input);
+                setCities(citiesData);
+                setIsLoading(false);
+            } else {
+                setCities([]);
+                setIsLoading(false);
+            }
         }, 1000), []
     );
 
@@ -36,6 +43,7 @@ function Search({ onCitySelect, isDarkMode}: SearchProps) {
         const input = event.target.value;
         setSearchText(input);
         setDropdownVisible(true);
+        setIsLoading(true);
         fetchCitiesDebounced(input);
         setHighlightedIndex(-1);
     };
@@ -90,6 +98,24 @@ function Search({ onCitySelect, isDarkMode}: SearchProps) {
         }
     }, [dropdownVisible]);
 
+    const renderDropdownContent = () => {
+        if (isLoading) {
+            return <div className="p-2 text-center">Loading...</div>;
+        } else if (cities.length > 0) {
+            return cities.filter(city => city.city.toLowerCase().includes(searchText.toLowerCase())).map((city, index) => (
+                <div
+                    key={city.id}
+                    onClick={() => handleCityClick(city)}
+                    className={`px-2 py-1 hover:bg-gray-200 cursor-pointer ${highlightedIndex === index ? 'bg-gray-200' : ''}`}
+                >
+                    {city.city}, {city.countryCode}
+                </div>
+            ));
+        } else {
+            return <div className="p-2 text-center">No options</div>;
+        }
+    };
+
     return (
         <div>
             <div className="relative flex items-center justify-center bg-white border rounded-md">
@@ -117,15 +143,7 @@ function Search({ onCitySelect, isDarkMode}: SearchProps) {
                 </button>
                 {dropdownVisible && (
                     <div ref={dropdownRef} className="absolute top-full left-0 w-full bg-white border rounded-md mt-1 z-10">
-                        {cities.filter(city => city.city.toLowerCase().includes(searchText.toLowerCase())).map((city, index) => (
-                            <div
-                                key={city.id} 
-                                onClick={() => handleCityClick(city)} 
-                                className={`px-2 py-1 hover:bg-gray-200 cursor-pointer ${highlightedIndex === index ? 'bg-gray-200' : ''}`}
-                            >
-                                {city.city}, {city.countryCode}
-                            </div>
-                        ))}
+                        {renderDropdownContent()}
                     </div>
                 )}
             </div>

@@ -50,7 +50,7 @@ function Header({ toggleDarkMode, isDarkMode }: HeaderProps) {
         {formatDateTime}
       </div>
       <div>
-        <a href="https://github.com/hoanvukhai/Weather_Forecast_V2" target="_blank" rel="noreferrer">
+        <a href="https://github.com/hoanvukhai/Weather_Forecast_2.0" target="_blank" rel="noreferrer">
             <div 
                 className={
                     isDarkMode
