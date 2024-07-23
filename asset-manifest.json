@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/Weather_Forecast_2.0/static/css/main.7f16fb6d.css",
+    "main.js": "/Weather_Forecast_2.0/static/js/main.cdae8df8.js",
+    "static/js/453.2c0af127.chunk.js": "/Weather_Forecast_2.0/static/js/453.2c0af127.chunk.js",
+    "static/media/night.gif": "/Weather_Forecast_2.0/static/media/night.5584eddcd7ae26774170.gif",
+    "static/media/noon.gif": "/Weather_Forecast_2.0/static/media/noon.b9b99ed8509b563ba54f.gif",
+    "static/media/sky2.jpg": "/Weather_Forecast_2.0/static/media/sky2.96f3367e3cc1213c1818.jpg",
+    "static/media/NightSky2.jpeg": "/Weather_Forecast_2.0/static/media/NightSky2.fb0429605c31fa38d9f5.jpeg",
+    "static/media/splash-icon.svg": "/Weather_Forecast_2.0/static/media/splash-icon.699b0bc5b331eb7ddb039683ec3decf4.svg",
+    "index.html": "/Weather_Forecast_2.0/index.html",
+    "static/media/loading.svg": "/Weather_Forecast_2.0/static/media/loading.eae1729e48cfa131a99c37fa505cce5d.svg",
+    "static/media/loading2.svg": "/Weather_Forecast_2.0/static/media/loading2.86d13f3cf0d64cd8c0d187d1dcb83e85.svg",
+    "main.7f16fb6d.css.map": "/Weather_Forecast_2.0/static/css/main.7f16fb6d.css.map",
+    "main.cdae8df8.js.map": "/Weather_Forecast_2.0/static/js/main.cdae8df8.js.map",
+    "453.2c0af127.chunk.js.map": "/Weather_Forecast_2.0/static/js/453.2c0af127.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7f16fb6d.css",
+    "static/js/main.cdae8df8.js"
+  ]
+}
