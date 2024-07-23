@@ -1,0 +1,72 @@
+.labelDarkMode {
+    position: relative;
+    width: 96px;
+    height: 36px;
+    display: block;
+    background: url('./img/noon.gif');
+    background-size: cover;
+    background-position: center;
+    border: 2px solid rgba(198, 247, 253, 0.3);
+    border-radius: 100px;
+    cursor: pointer;
+    transition: 1s ease;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+}
+.labelDarkMode::after {
+    content: '';
+    position: absolute;
+    height: 22px;
+    width: 22px;
+    background: #f2f2f2;
+    border-radius: 50%;
+    top: 5px;
+    left: 6px;
+    transition: 0.8s ease;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.labelDarkMode::before {
+    content: '';
+    position: absolute;
+    height: 22px;
+    width: 22px;
+    border: 1px solid rgba(198, 247, 253, 0.3);
+    border-radius: 50%;
+    top: 3px;
+    left: 4px;
+    transition: 0.8s ease;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.18);
+}
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #9ad6f7;
+    z-index: -1;
+    transition: all 1s ease;
+}
+
+.inputDarkMode:checked ~ label::after {
+    left: 86px;
+    transform: translateX(-100%);
+    background: #777ba5;
+}
+.inputDarkMode:checked ~ label::before {
+    left: 88px;
+    padding: 11px;
+    border: 2px solid rgba(90, 79, 136, 0.2);
+    transform: translateX(-100%);
+}
+.inputDarkMode:checked ~ label {
+    background: url('./img/night.gif');
+    background-size: cover;
+    background-position: center;
+    border: 2px solid rgba(90, 79, 136, 0.2);
+}
+.inputDarkMode:checked ~.background{
+    background: #0e377c;
+}
+.inputDarkMode {
+    display: none;
+}
