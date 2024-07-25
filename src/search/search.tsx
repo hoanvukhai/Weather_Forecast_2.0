@@ -28,14 +28,10 @@ function Search({ onCitySelect, isDarkMode}: SearchProps) {
 
     const fetchCitiesDebounced = useCallback(
         debounce(async (input: string) => {
-            if(input){
-                const citiesData = await fetchCities(input);
-                setCities(citiesData);
-                setIsLoading(false);
-            } else {
-                setCities([]);
-                setIsLoading(false);
-            }
+            setIsLoading(true); // Start loading
+            const citiesData = await fetchCities(input);
+            setCities(citiesData);
+            setIsLoading(false); // End loading
         }, 1000), []
     );
 
@@ -43,7 +39,6 @@ function Search({ onCitySelect, isDarkMode}: SearchProps) {
         const input = event.target.value;
         setSearchText(input);
         setDropdownVisible(true);
-        setIsLoading(true);
         fetchCitiesDebounced(input);
         setHighlightedIndex(-1);
     };

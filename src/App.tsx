@@ -51,7 +51,7 @@ function App() {
               ? { backgroundImage: `url(${nightSky})` }
               : { backgroundImage: `url(${sky})` }
           }
-          className="bg-cover w-screen max-w-5xl min-w-96 md:rounded-3xl shadow-2xl px-4 md:mt-5 transition-all duration-1000" 
+          className={`bg-cover w-screen max-w-5xl min-w-96 md:h-auto ${selectedCity && lat !== null && lon !== null ? "" : "h-full"} md:rounded-3xl shadow-2xl px-4 md:mt-5 transition-all duration-1000`} 
         >
           <Header toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />
           <Search onCitySelect={handleCitySelect} isDarkMode={isDarkMode} />

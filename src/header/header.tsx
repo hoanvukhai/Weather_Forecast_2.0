@@ -58,7 +58,7 @@ function Header({ toggleDarkMode, isDarkMode }: HeaderProps) {
                     : "text-sky-300 hover:text-white"
                 }
             >
-            <FontAwesomeIcon icon={faGithub} className="text-3xl" />
+            <FontAwesomeIcon icon={faGithub} className="text-4xl" />
           </div>
         </a>
       </div>

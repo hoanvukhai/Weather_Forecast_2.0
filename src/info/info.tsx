@@ -3,7 +3,7 @@ import { ReactComponent as SplashIcon } from "../splash-icon.svg";
 
 function Info({ isDarkMode }: any) {
   return (
-    <div className="flex flex-col justify-center items-center h-[450px] md:mt-0 mt-2">
+    <div className="flex flex-col justify-center items-center md:h-[450px] h-4/5 md:mt-0 mt-2">
       <div
         className={
           isDarkMode
